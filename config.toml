@@ -13,25 +13,18 @@ footnotereturnlinkcontents = "↩"
     note = "/note/:year/:month/:day/:slug/"
 
 [[menu.main]]
-    name = "Home"
+    name = "About"
     url = "/"
     weight = 1
 [[menu.main]]
-    name = "About"
-    url = "/about/"
+    name = "Topics"
+    url = "/topics/"
     weight = 2
-[[menu.main]]
-    name = "Categories"
-    url = "/categories/"
-    weight = 3
 [[menu.main]]
     name = "Tags"
     url = "/tags/"
-    weight = 4
-[[menu.main]]
-    name = "Subscribe"
-    url = "/index.xml"
+    weight = 3
 
 [params]
-    description = "A website built through Hugo and blogdown."
-    footer = "&copy; Adam Sadowski | [Github](https://github.com/adamsadowski) | [Twitter](https://twitter.com/adamofthegarden)"
+    description = "Adam Sadowski's Website."
+    footer = "&copy; Adam Sadowski"

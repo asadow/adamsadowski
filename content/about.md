@@ -1,4 +1,4 @@
 ---
-author: Adam Sadowski
+title: Statistics
 ---
 

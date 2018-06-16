@@ -1,0 +1,11 @@
+---
+title: DOLORisk Analysis
+author: Adam Sadowski
+date: '2018-06-16'
+slug: dolorisk-analysis
+categories:
+  - Statistics
+tags: []
+---
+
+Currently I'm analyzing data to identify risk factors for chronic pain as part of the [DOLORisk](http://dolorisk.eu/) project. The data sets contain a Cohort Profile in the International Journal of Epidemiology describing lifestyle, medical history, prescribing, genotype, cognitive function and psychology.
