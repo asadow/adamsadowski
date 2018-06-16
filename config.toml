@@ -1,6 +1,6 @@
 baseurl = "/"
 languageCode = "en-us"
-title = "A minimal Hugo website"
+title = "Adam's Website"
 theme = "hugo-xmin"
 googleAnalytics = ""
 disqusShortname = "adamofthegarden"
@@ -17,8 +17,8 @@ footnotereturnlinkcontents = "↩"
     url = "/"
     weight = 1
 [[menu.main]]
-    name = "Topics"
-    url = "/topics/"
+    name = "Categories"
+    url = "/categories/"
     weight = 2
 [[menu.main]]
     name = "Tags"
