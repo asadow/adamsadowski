@@ -1,6 +1,6 @@
 baseurl = "https://adam.rbind.io/"
 languageCode = "en-us"
-title = "Adam's Website"
+title = ""
 theme = "hugo-xmin"
 googleAnalytics = ""
 disqusShortname = "https-adamsadowski-netlify-com"
