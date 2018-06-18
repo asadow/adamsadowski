@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://adam.rbind.io/"
 languageCode = "en-us"
 title = "Adam's Website"
 theme = "hugo-xmin"
