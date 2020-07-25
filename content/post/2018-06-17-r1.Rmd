@@ -1,0 +1,51 @@
+---
+title: 'Survey Response Data'
+author: Adam Sadowski
+date: '2020-07-24'
+slug: survey-response-data
+indent: true
+categories:
+  - Data Cleaning
+tags:
+  - grep, sub, regex
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, message= F, warning = F, comment=NA, results = "as is", tidy.opts=list(width.cutoff=60), tidy=TRUE)
+```
+Suppose you asked human beings to answer a survey that included questions on how much time their children spend doing X on a typical day. These questiosn have two text boxes:
+
+Unique responses to the first box of the first question:
+
+```{r}
+x <- c("5", NA, "3", "4", "2", "",  "1", "6", "8", "60",  "30",  "45",  "7", "20", 
+ "9", "35",  "3 ",  "1.5", "4-5", "2 ",  "40", 
+"Day care","3 to 4", "10",  "48",  "4hrs",  "15",  "90", 
+"?", "12")
+x
+
+```
+
+Unique responses to the second box which allows selection of the units:
+
+```{r}
+u <- c("Minutes", "Hours")
+u
+
+```
+
+Evidently this data needs to be cleaned before we do `as.numeric()` which turns non-numeric strings into `NA`.
+
+First, we might think, let's deal with the interval responses like `4-5`. We note there's also a response `3 to 4`. We can turn these responses into proper numbers like so:
+
+```{r echo = T}
+x1 <- as.numeric(sub("^(.*?)(-|to).*", "\\1", x))
+x2 <- as.numeric(sub("^.*(-|to)(.*?)", "\\2", x))
+ifelse(grepl("-|to", x), (x1+x2)/2, x)
+```
+
+Next we might think, let's turn `4hrs` into `4`. But wouldn't you want to know first that the units aren't missing from the second box? And what's `Day care` about? Does that mean "duration of day care"? 
+
+Before we go gung-ho into cleaning this data, converting units using the unit selected and slapping a pretty name like `avg.day.active.play.time.hrs`... human error needs to be considered. What if someone selected the wrong units? What sort of limits should we impose on plausible responses: e.g. is 16 hours the upper limit of a child's active play time? After conversion to hours, do we then screen for `> 16` and turn those responses into minutes?
+
+These are the sort of questions I asked myself before deciding to commit fully to cleaning this data. Clearly expert opinion is involved and that is where full transparency and leaving the data dirty might actually be best practice!
+
