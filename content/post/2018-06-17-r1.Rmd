@@ -30,7 +30,6 @@ Unique responses to the second box which allows selection of the units:
 ```{r}
 u <- c("Minutes", "Hours")
 u
-
 ```
 
 Evidently this data needs to be cleaned before we do `as.numeric()` which turns non-numeric strings into `NA`.

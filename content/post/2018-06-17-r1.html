@@ -22,7 +22,7 @@ tags:
 <p>Unique responses to the second box which allows selection of the units:</p>
 <pre><code>[1] &quot;Minutes&quot; &quot;Hours&quot;  </code></pre>
 <p>Evidently this data needs to be cleaned before we do <code>as.numeric()</code> which turns non-numeric strings into <code>NA</code>.</p>
-<p>First, we might think, let's deal with the interval responses like <code>4-5</code>. We note there's also a response <code>3 to 4</code>. We can turn these responses into proper numbers like so:</p>
+<p>First, we might think, let’s deal with the interval responses like <code>4-5</code>. We note there’s also a response <code>3 to 4</code>. We can turn these responses into proper numbers like so:</p>
 <pre class="r"><code>x1 &lt;- as.numeric(sub(&quot;^(.*?)(-|to).*&quot;, &quot;\\1&quot;, x))
 x2 &lt;- as.numeric(sub(&quot;^.*(-|to)(.*?)&quot;, &quot;\\2&quot;, x))
 ifelse(grepl(&quot;-|to&quot;, x), (x1+x2)/2, x)</code></pre>
@@ -31,6 +31,6 @@ ifelse(grepl(&quot;-|to&quot;, x), (x1+x2)/2, x)</code></pre>
 [13] &quot;7&quot;        &quot;20&quot;       &quot;9&quot;        &quot;35&quot;       &quot;3 &quot;       &quot;1.5&quot;     
 [19] &quot;4.5&quot;      &quot;2 &quot;       &quot;40&quot;       &quot;Day care&quot; &quot;3.5&quot;      &quot;10&quot;      
 [25] &quot;48&quot;       &quot;4hrs&quot;     &quot;15&quot;       &quot;90&quot;       &quot;?&quot;        &quot;12&quot;      </code></pre>
-<p>Next we might think, let's turn <code>4hrs</code> into <code>4</code>. But wouldn't you want to know first that the units aren't missing from the second box? And what's <code>Day care</code> about? Does that mean &quot;duration of day care&quot;?</p>
-<p>Before we go gung-ho into cleaning this data, converting units using the unit selected and slapping a pretty name like <code>avg.day.active.play.time.hrs</code>... human error needs to be considered. What if someone selected the wrong units? What sort of limits should we impose on plausible responses: e.g. is 16 hours the upper limit of a child's active play time? After conversion to hours, do we then screen for <code>&gt; 16</code> and turn those responses into minutes?</p>
+<p>Next we might think, let’s turn <code>4hrs</code> into <code>4</code>. But wouldn’t you want to know first that the units aren’t missing from the second box? And what’s <code>Day care</code> about? Does that mean “duration of day care”?</p>
+<p>Before we go gung-ho into cleaning this data, converting units using the unit selected and slapping a pretty name like <code>avg.day.active.play.time.hrs</code>… human error needs to be considered. What if someone selected the wrong units? What sort of limits should we impose on plausible responses: e.g. is 16 hours the upper limit of a child’s active play time? After conversion to hours, do we then screen for <code>&gt; 16</code> and turn those responses into minutes?</p>
 <p>These are the sort of questions I asked myself before deciding to commit fully to cleaning this data. Clearly expert opinion is involved and that is where full transparency and leaving the data dirty might actually be best practice!</p>
