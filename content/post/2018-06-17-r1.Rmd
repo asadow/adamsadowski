@@ -12,7 +12,7 @@ tags:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F, message= F, warning = F, comment=NA, results = "as is", tidy.opts=list(width.cutoff=60), tidy=TRUE)
 ```
-Suppose you asked human beings to answer a survey that included questions on how much time their children spend doing X on a typical day. These questiosn have two text boxes:
+Suppose you asked human beings to answer a survey that included questions on how much time their children spend doing X on a typical day. These questions have two text boxes:
 
 Unique responses to the first box of the first question:
 
